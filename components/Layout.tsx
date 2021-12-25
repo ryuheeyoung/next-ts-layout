@@ -1,41 +1,46 @@
-import React, { ReactNode } from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
+import React from "react";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import { teal } from "@mui/material/colors";
+import { Color } from "@mui/material";
 
-type Props = {
-  children?: ReactNode
-  title?: string
+interface Colors extends Color {
+  [key: string]: string;
 }
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
-  <div>
-    <Head>
-      <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
-    <header>
-      <nav>
-        <Link href="/">
-          <a>Home</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/about">
-          <a>About</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/users">
-          <a>Users List</a>
-        </Link>{' '}
-        | <a href="/api/users">Users API</a>
-      </nav>
-    </header>
-    {children}
-    <footer>
-      <hr />
-      <span>I'm here to stay (Footer)</span>
-    </footer>
-  </div>
-)
+const Layout = () => {
+  return (
+    <Container
+      maxWidth={false}
+      sx={{
+        p: 0,
+        display: "flex",
+        width: "100vw",
+        height: "100vh",
+        m: 0,
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+      }}
+    >
+      {Array.from(Array(9).keys()).map((item, idx) => {
+        var cIndex = ((idx + 1) * 100).toString();
+        return (
+          <Box
+            sx={(theme) => ({
+              backgroundColor: (teal as Colors)[cIndex],
+              width: "25vw",
+              m: "1.25em",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            })}
+          >
+            <Box>Flex Box {item + 1}</Box>
+          </Box>
+        );
+      })}
+    </Container>
+  );
+};
 
-export default Layout
+export default Layout;
