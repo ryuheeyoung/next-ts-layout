@@ -1,8 +1,8 @@
-// pages/_app.js
 import Head from "next/head";
+import { AppProps } from "next/app";
 import CssBaseline from "@mui/material/CssBaseline";
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
