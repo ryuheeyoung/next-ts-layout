@@ -26,6 +26,7 @@ const Layout = () => {
         var cIndex = ((idx + 1) * 100).toString();
         return (
           <Box
+            key={cIndex}
             sx={(theme) => ({
               backgroundColor: (teal as Colors)[cIndex],
               width: "25vw",
