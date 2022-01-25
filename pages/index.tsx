@@ -1,5 +1,7 @@
 import Layout from "../components/Layout";
-import RecipeInput from "../components/recipes/recipe-input";
+import { Layers } from "../utils/Layers";
 
-const IndexPage = () => <RecipeInput />;
+const IndexPage = () => {
+  return <Layout layers={Layers} />;
+};
 export default IndexPage;

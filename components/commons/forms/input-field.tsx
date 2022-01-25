@@ -1,17 +1,16 @@
 import {
   Autocomplete,
-  AutocompleteProps,
   Box,
   createFilterOptions,
   FilterOptionsState,
   Options,
   TextField,
   TextFieldProps,
-} from '@mui/material';
-import { useEffect, useState } from 'react';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import CancelSharpIcon from '@mui/icons-material/CancelSharp';
-import IconButton from '@mui/material/IconButton';
+} from "@mui/material";
+import { useEffect, useState } from "react";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import CancelSharpIcon from "@mui/icons-material/CancelSharp";
+import IconButton from "@mui/material/IconButton";
 
 const filter = createFilterOptions<InputOptions>();
 
@@ -30,14 +29,14 @@ interface TypeProps {
 }
 
 const InputField = ({
-  id = 'input-field',
+  id = "input-field",
   options = [],
   selected,
   onChangeHandler,
 }: TypeProps) => {
   const [opts, setOpts] = useState(options);
 
-  const onChange: TextFieldProps['onChange'] = (e) => {};
+  const onChange: TextFieldProps["onChange"] = (e) => {};
   const onSelect = (e: any, val: InputOptions | null) => {
     onChangeHandler(val);
   };
@@ -49,7 +48,7 @@ const InputField = ({
 
     const { inputValue } = params;
     const isExisting = optList.some((o) => o.label === inputValue);
-    if (inputValue != '' && !isExisting) {
+    if (inputValue != "" && !isExisting) {
       filtered.unshift({
         inputValue,
         label: `"${inputValue}" 추가`,
@@ -60,7 +59,7 @@ const InputField = ({
   };
 
   const getOptionLabel = (opt: any) => {
-    if (typeof opt === 'string') {
+    if (typeof opt === "string") {
       return opt;
     } else if (opt && opt.inputValue) {
       return opt.inputValue;
@@ -76,11 +75,11 @@ const InputField = ({
   return (
     <Box
       sx={{
-        p: '0.25em',
+        p: "0.25em",
         m: 0,
-        width: '90%',
-        display: 'inline-flex',
-        alignItems: 'center',
+        width: "90%",
+        display: "inline-flex",
+        alignItems: "center",
       }}
     >
       <Autocomplete
@@ -88,28 +87,28 @@ const InputField = ({
         value={selected}
         freeSolo
         handleHomeEndKeys
-        noOptionsText={'텅'}
+        noOptionsText={"텅"}
         options={opts}
         onChange={onSelect}
         filterOptions={onFilterOption}
         getOptionLabel={getOptionLabel}
-        renderInput={(params) => <TextField {...params} label='재료' />}
-        sx={{ width: 200, display: 'inline-block', marginRight: '.5em' }}
+        renderInput={(params) => <TextField {...params} label="재료" />}
+        sx={{ width: 200, display: "inline-block", marginRight: ".5em" }}
         selectOnFocus
         clearOnBlur
         disablePortal
       />
       <TextField
         id={`amount-${id}`}
-        label='수량'
-        color='secondary'
+        label="수량"
+        color="secondary"
         sx={{ width: 300 }}
         defaultValue={selected?.value}
         onChange={onChange}
         focused
       />
       <IconButton>
-        {selected ? <CancelSharpIcon /> : <AddCircleIcon color='secondary' />}
+        {selected ? <CancelSharpIcon /> : <AddCircleIcon color="secondary" />}
       </IconButton>
     </Box>
   );

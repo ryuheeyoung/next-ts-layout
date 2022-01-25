@@ -4,7 +4,33 @@
 //
 // import { User } from 'path/to/interfaces';
 
-export type User = {
+/**
+ * 메인템플릿
+ */
+export type TemplateLayout = {
   id: number
   name: string
+  content: any
+}
+
+/**
+ * 재료
+ */
+export type Material = {
+  id: number;
+  name: string;
+  amount?: number;
+  unit?: string;
+}
+
+/**
+ * 레시피 재료
+ */
+export type Recipe = {
+  id: number;
+  material_id: number;
+  amount: number;
+  unit: string;
+  order: number;
+  content?: string;
 }
