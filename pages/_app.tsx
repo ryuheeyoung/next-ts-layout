@@ -7,6 +7,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     <>
       <Head>
         <meta name="viewport" content="viewport-fit=cover" />
+        <title>HeeApp</title>
       </Head>
       <Component {...pageProps} />
       <CssBaseline />

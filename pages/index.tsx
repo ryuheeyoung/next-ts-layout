@@ -1,12 +1,12 @@
-import { useRouter } from "next/router";
-import React, { useCallback } from "react";
+import Link from "next/link";
+import React from "react";
 
+import { Color } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { teal } from "@mui/material/colors";
-import { Color, Link } from "@mui/material";
+import MuiLink from "@mui/material/Link";
 
-import { TemplateLayout } from "../interfaces";
 import { Layers as layers } from "../utils/Layers";
 
 interface Colors extends Color {
@@ -14,11 +14,6 @@ interface Colors extends Color {
 }
 
 const IndexPage = () => {
-  const router = useRouter();
-
-  const onClick = useCallback((layer: TemplateLayout) => {
-    router.push(layer.content);
-  }, []);
   return (
     <Container
       maxWidth={false}
@@ -47,12 +42,10 @@ const IndexPage = () => {
             })}
           >
             {layers[idx] ? (
-              <Link
-                underline="none"
-                color="inherit"
-                onClick={() => onClick(layers[idx])}
-              >
-                {layers[idx].name}
+              <Link href={layers[idx].content} passHref>
+                <MuiLink underline="none" color="inherit">
+                  {layers[idx].name}
+                </MuiLink>
               </Link>
             ) : (
               `Flex Box ${cIndex}`
