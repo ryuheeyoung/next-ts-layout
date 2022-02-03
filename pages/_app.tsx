@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { AppProps } from "next/app";
 import CssBaseline from "@mui/material/CssBaseline";
+import Layout from "../components/layout";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -9,7 +10,9 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta name="viewport" content="viewport-fit=cover" />
         <title>HeeApp</title>
       </Head>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
       <CssBaseline />
     </>
   );
