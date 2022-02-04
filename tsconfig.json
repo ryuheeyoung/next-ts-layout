@@ -21,7 +21,8 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
-    "incremental": true
+    "incremental": true,
+    "baseUrl": "."
   },
   "include": [
     "next-env.d.ts",

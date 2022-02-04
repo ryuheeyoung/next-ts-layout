@@ -1,23 +1,13 @@
 import React from "react";
-import Tab from "@mui/material/Tab";
+import Tab, { TabProps } from "@mui/material/Tab";
 import Link from "next/link";
 
-export interface NavTabProps {
-  label?: string;
-  href?: string;
-}
+type CurrentTabProps = TabProps<"a">;
 
-const NavTab = (props: NavTabProps) => {
-  const onClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) =>
-    e.preventDefault();
-
+const NavTab = ({ href, ...props }: CurrentTabProps) => {
   return (
-    <Link href={props.href ?? "/soap"} passHref>
-      <Tab
-        component="a"
-        onClick={(e) => console.log("ff")}
-        label={props.label}
-      />
+    <Link href={href ?? "/soap"} passHref>
+      <Tab component="a" {...props} />
     </Link>
   );
 };

@@ -1,18 +1,25 @@
-import Head from "next/head";
-import { AppProps } from "next/app";
 import CssBaseline from "@mui/material/CssBaseline";
-import Layout from "../components/layout";
+import Layout from "components/layout";
+import { AppProps } from "next/app";
+import Head from "next/head";
+import { ComponentType } from "react";
 
-const App = ({ Component, pageProps }: AppProps) => {
+type CompProps = AppProps["Component"] & {
+  Layout?: ComponentType;
+};
+
+const App = ({ Component, pageProps }: AppProps & { Component: CompProps }) => {
+  const ComputedLayout = Component.Layout || Layout;
+
   return (
     <>
       <Head>
         <meta name="viewport" content="viewport-fit=cover" />
         <title>HeeApp</title>
       </Head>
-      <Layout>
+      <ComputedLayout>
         <Component {...pageProps} />
-      </Layout>
+      </ComputedLayout>
       <CssBaseline />
     </>
   );
