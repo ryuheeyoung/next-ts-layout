@@ -15,6 +15,7 @@ const App = ({ Component, pageProps }: AppProps & { Component: CompProps }) => {
     <>
       <Head>
         <meta name="viewport" content="viewport-fit=cover" />
+        <meta name="viewport" content="viewport-width=device-width" />
         <title>HeeApp</title>
       </Head>
       <ComputedLayout>

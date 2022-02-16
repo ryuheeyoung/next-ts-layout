@@ -11,7 +11,7 @@ import { useMemo } from "react";
 
 export interface Column extends TableCellProps {
   key: string;
-  dataKey?: string;
+  dataKey: string;
   title: string;
   width?: number | string | undefined;
   render?: (

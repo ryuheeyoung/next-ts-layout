@@ -13,10 +13,14 @@ export type TemplateLayout = {
   content: any
 }
 
+type Dict = {
+  [key: string]: any;
+}
+
 /**
  * 재료
  */
-export type Material = {
+export type Material = Dict & {
   id: number;
   name: string;
   amount?: number;
@@ -26,7 +30,7 @@ export type Material = {
 /**
  * 레시피 재료
  */
-export type Recipe = {
+export type Recipe = Dict & {
   id: number;
   material_id: number;
   amount: number;

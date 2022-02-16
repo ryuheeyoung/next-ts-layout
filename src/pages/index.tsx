@@ -7,7 +7,7 @@ import Container from "@mui/material/Container";
 import { teal } from "@mui/material/colors";
 import MuiLink from "@mui/material/Link";
 
-import { Layers as layers } from "../utils/Layers";
+import { Layers as layers } from "utils/Layers";
 
 interface Colors extends Color {
   [key: string]: string;
