@@ -19,7 +19,7 @@ import SoapLayout from "components/soap/layout";
 import { getMaterials } from "fetches/material";
 import { Material } from "interfaces";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useSWR from "swr";
 
 type TypeProps = {
@@ -63,11 +63,6 @@ const SoapMaterial = (props: TypeProps) => {
     mutate();
     setOpen(false);
   };
-
-  // useEffect(() => {
-  //   console.log(data);
-  //   setMat(data);
-  // }, [data]);
 
   return (
     <>
@@ -129,7 +124,7 @@ const SoapMaterial = (props: TypeProps) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const data = await getMaterials();
 
   return { props: { data } };
