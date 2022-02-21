@@ -125,9 +125,14 @@ const SoapMaterial = (props: TypeProps) => {
 };
 
 export async function getServerSideProps() {
-  const data = await getMaterials();
+  try {
+    const data = await getMaterials();
 
-  return { props: { data } };
+    return { props: { data } };
+  } catch (e) {
+    console.error(e.message);
+    return { props: { error: e.message }, data: [] };
+  }
 }
 
 export default SoapMaterial;
