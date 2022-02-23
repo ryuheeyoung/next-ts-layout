@@ -21,10 +21,12 @@ type Dict = {
  * 재료
  */
 export type Material = Dict & {
-  id: number;
+  id?: number;
   name: string;
-  amount?: number;
-  unit?: string;
+  amount: number | null;
+  unit: string | null;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 /**
@@ -37,4 +39,7 @@ export type Recipe = Dict & {
   unit: string;
   order: number;
   content?: string;
+
+  createdAt?: Date;
+  updatedAt?: Date;
 }

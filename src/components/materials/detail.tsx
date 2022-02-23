@@ -1,6 +1,8 @@
+import { Autocomplete, Box, Input } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
 
 import { Material } from "interfaces";
+import { useEffect, useState } from "react";
 
 type TypeProps = {
   data?: Material;
@@ -9,16 +11,14 @@ type TypeProps = {
 };
 
 const MaterialDetail = ({ data, open = false, onCloseHandler }: TypeProps) => {
-  return (
-    <Drawer anchor="bottom" open={open} onClose={onCloseHandler}>
-      <pre>{`
-          hi
-          hello
+  const [mat, setMat] = useState<Material | undefined>();
 
-          soap
-          material
-          
-          `}</pre>
+  useEffect(() => {
+    setMat(data);
+  }, [data]);
+  return (
+    <Drawer anchor="right" open={open} onClose={onCloseHandler}>
+      <Box sx={{ p: "2.5em" }}></Box>
     </Drawer>
   );
 };

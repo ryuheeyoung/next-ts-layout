@@ -21,12 +21,12 @@ export interface Column extends TableCellProps {
   ) => JSX.Element | unknown;
 }
 
-type TypeTable = TableProps & {
+type TypeTableProps = TableProps & {
   columns: Column[];
   dataSource: any;
 };
 
-const CommTable = ({ columns, dataSource, ...props }: TypeTable) => {
+const CommTable = ({ columns, dataSource, ...props }: TypeTableProps) => {
   const count_w = useMemo(
     () => columns.filter((cw) => !cw.width).length,
     [columns]
