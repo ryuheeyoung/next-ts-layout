@@ -18,6 +18,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
         }
         
     } catch(e) {
-        res.status(e.statusCode).json( { statusCode: e.statusCode, message: e.message});
+        console.log("message: " ,e);
+        res.status(500).json( { statusCode: e.statusCode, message: e.message});
     }
 }
